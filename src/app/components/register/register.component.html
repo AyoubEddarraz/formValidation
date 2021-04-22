@@ -1,0 +1,55 @@
+<!-- Register Forme -->
+<div class="register shadow-sm row animate__animated animate__delay-1s" [class.animate__fadeOutRightBig]="registerSuccess">
+  <!-- Section one From -->
+  <div class="registerForm col-xl-5 col-lg-12">
+    <!-- Form -->
+    <form #registerForm="ngForm" (ngSubmit)="Register(registerForm)">
+      <!-- user icone -->
+      <i class="far fa-user rounded shadow-sm" aria-hidden="true"></i>
+      <!-- title -->
+      <h2>Inscrivez-vous</h2>
+      <!-- descreption -->
+      <p>Créez un compte gratuit sur Future Digital</p>
+      <!-- label name -->
+      <label class="field animate__animated" [ngClass]="{'animate__shakeX error': Name.touched && !Name.valid}"> <!-- ngClass for style binding if input touched and input is not valid Excute this Style -->
+        <!-- input name -->
+        <input type="text" required [(ngModel)]="register.name" #Name="ngModel" name="name" placeholder="John Nash"/> <!-- ng Model for tow-way data binding between html and typescript -->
+        <!-- custome placholder -->
+        <span class="placeholder">Nom complet</span>
+        <!-- icone : if input valid -->
+        <i class="fa fa-check" aria-hidden="true" [class.valid]="Name.touched && Name.valid" [hidden]="!Name.valid"></i>
+      </label>
+      <!-- filed Email -->
+      <label class="field animate__animated" [ngClass]="{'animate__shakeX error': Email.touched && !emailCorrect}">
+        <input type="email" required [(ngModel)]="register.email" #Email="ngModel" name="email" placeholder="exmple@email.com" (keyup)="validateEmail()" />
+        <span class="placeholder">Adress e-mail</span>
+        <i class="fa fa-check" aria-hidden="true" [class.valid]="emailCorrect" [hidden]="!emailCorrect"></i>
+      </label>
+      <!-- conataine helper text and Field -->
+      <div class="helperText">
+        <!-- field password -->
+        <label class="field animate__animated" [ngClass]="{'animate__shakeX error': Password.touched && !Password.valid}">
+          <input [type]="PassWord" required [(ngModel)]="register.password" #Password="ngModel" name="password" minlength="4" maxlength="6" />
+          <span class="placeholder">Mot de passe</span>
+          <i class="fas fa-eye" [class.fa-eye-slash]="showPassWord" (click)="showPassWord = !showPassWord" (click)="ShowPassWord()" aria-hidden="true"></i>
+        </label>
+        <strong>Le mot de passe doit comporter entre 4 et 6 caractères</strong>
+      </div>
+      <!-- field confirme password -->
+      <label class="field animate__animated" [ngClass]="{'animate__shakeX error': ConfirmePassword.touched && !ConfirmePasswordCorrect}">
+        <input [type]="PassWord" required [(ngModel)]="register.confirmePassword" #ConfirmePassword="ngModel" name="confirmePassword" minlength="4" maxlength="6" (keyup)="validateConfirmePassword()" />
+        <span class="placeholder">Confirmer le mot de passe</span>
+        <i class="fas fa-eye" [class.fa-eye-slash]="showPassWord" (click)="showPassWord = !showPassWord" (click)="ShowPassWord()" aria-hidden="true"></i>
+      </label>
+      <!-- Filed Agree -->
+      <label class="agree animate__animated" id="agree">
+        <input type="checkbox" id="agree" [(ngModel)]="register.agree" name="accepte" required>
+        <span>J'ai accepté les <a>conditions générales</a></span>
+      </label>
+      <!-- Submit Button -->
+      <button class="shadow-sm mb-5" [disabled]="!registerForm.valid || !ConfirmePasswordCorrect || !emailCorrect">s'inscrire</button>
+    </form>
+  </div>
+  <!-- Section image -->
+  <div class="registerImage col-xl-7 col-lg-12"></div>
+</div>

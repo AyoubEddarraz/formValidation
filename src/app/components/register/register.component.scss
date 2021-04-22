@@ -1,0 +1,248 @@
+// register Style
+.register{
+  width: 1080px;
+  height: auto;
+  background-color: #FFFFFF;
+  margin: 0;
+  border-radius: 4px;
+
+  // Section formulaire
+  .registerForm{
+    padding: 24px;
+
+    // text helper
+    .helperText{
+      position: relative;
+      font-size: 12px;
+      margin-bottom: 10px;
+
+      strong{
+        padding-left: 12px;
+        font-weight: 900;
+      }
+
+    }
+
+    // form style
+    form{
+
+      & > i{
+        position: absolute;
+        top: -20px;
+        left: 24px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #FF5160;
+        font-size: 16px;
+        color: white;
+      }
+
+      h2{
+        font-size: 18px;
+        font-weight: bold;
+        color: #000000;
+        margin-top: 20px;
+      }
+
+      p{
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+
+      // filed style
+      .field{
+        position: relative;
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        font-size: 14px;
+        margin: 10px 0;
+
+        // if input invalid
+        &.error{
+          color: #FF5160;
+
+          input{
+            border: 2px solid #FF5160;
+            color: #FF5160;
+          }
+
+
+        }
+
+        // if input is valid
+        i.fa-check.valid{
+          color:#0be881;
+        }
+
+        // input style
+        input{
+          appearance: none;
+          width: 100%;
+          padding: 12px;
+          background: transparent;
+          border: 1px solid #000000;
+          border-radius: 4px;
+          outline: none;
+          font-size: 14px;
+
+          &::placeholder{
+            opacity: 0;
+            transition: opacity .3s ease;
+          }
+
+          &:focus::placeholder{
+            opacity: 1;
+          }
+
+        }
+
+        // custome placeholder
+        .placeholder{
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 12px;
+          background-color: #FFFFFF;
+          font-size: 14px;
+          font-weight: 600;
+          padding: 0 5px;
+          transition: top .3s ease;
+        }
+
+        input:valid + .placeholder,
+        input:focus + .placeholder{
+          top: 0;
+        }
+
+        i{
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 12px;
+          cursor: pointer;
+        }
+
+
+      }
+
+      // Agree Conditions
+      .agree{
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: auto;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 10px 0;
+        background-color: transparent;
+        margin: 10px 0;
+
+        // Custome checkbox
+        input[type="checkbox"]{
+          appearance: none;
+          width: 16px;
+          height: 16px;
+          margin-right: 5px;
+          background-color: transparent;
+          border: 2px solid #747474;
+          border-radius: 2px;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:after{
+            font-family: "Font Awesome 5 Free";
+            content: "\f00c";
+            font-size: 8px;
+            font-weight: 900;
+            color: white;
+            display: none;
+          }
+
+          &:checked{
+            background-color: #FF5160;
+            border: 2px solid #FF5160;
+          }
+
+
+          &:checked::after{
+            display: block;
+          }
+
+        }
+
+        // conditions link
+        a{
+          color: #FF5160;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+      }
+
+      // button Submit
+      button{
+        border: none;
+        width: 100%;
+        padding: 15px;
+        border-radius: 4px;
+        background-color: #FF5160;
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+        text-transform: uppercase;
+
+        &:disabled{
+          opacity: .5;
+        }
+
+      }
+
+    }
+
+    }
+
+
+  // section image
+  .registerImage{
+    background: transparent url('../../../assets/images/Image1@2x.png') 0% 0% no-repeat padding-box;
+    background-size: cover;
+    border-radius: 0 4px 4px 0;
+
+    // overly blue
+    &::before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba($color: blue, $alpha: .05);
+      z-index: 100;
+    }
+
+  }
+
+}
+
+
+// Media Query
+@media screen and (max-width: 1200px) {
+  .register{
+    width: 100% !important;
+  }
+
+  .registerForm{
+    padding: 12px !important;
+  }
+
+  .registerImage{
+    display: none;
+  }
+
+}

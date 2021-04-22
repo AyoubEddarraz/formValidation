@@ -1,0 +1,70 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~animate.css/animate.min.css";
+
+body{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden auto;
+  background-color: #FAFCFD;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #00000061;
+
+  &::-webkit-scrollbar{
+    width: 0;
+  }
+
+}
+
+// simple css normalize
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus{
+  outline: none;
+}
+
+// flash messages Style
+
+.flshMessage{
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.alert-success, .alert-danger{
+  min-width: 250px;
+  color: white;
+  border-color: none;
+}
+
+.alert-success {
+  background-color: rgb(73, 192, 154);
+}
+
+.alert-danger {
+  background-color: rgb(245, 59, 87);
+}
+
+// Media Query
+@media screen and (max-width: 768px){
+
+  .flshMessage{
+    right: 1rem;
+  }
+
+  .alert-success, .alert-danger{
+    max-width: 300px;
+    height: auto;
+
+  }
+}
